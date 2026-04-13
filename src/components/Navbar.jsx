@@ -2,13 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ChevronDown, Languages } from 'lucide-react';
-import logo from '../assets/tamaynut.png';
+import logo from '../assets/tamaynut-.png';
 
 const LANGUAGES = [
   { code: 'en', label: 'EN', flag: '🇬🇧', full: 'English' },
   { code: 'fr', label: 'FR', flag: '🇫🇷', full: 'Français' },
   { code: 'ar', label: 'AR', flag: '🇲🇦', full: 'العربية' },
-  { code: 'zgh', label: 'ⵣ', flag: '⵿', full: 'ⵜⴰⵎⴰⵣⵉⵖⵜ' },
+  { code: 'zgh', label: 'ⵣ', flag: 'ⵣ', full: 'ⵜⴰⵎⴰⵣⵉⵖⵜ' },
 ];
 
 const Navbar = () => {
@@ -81,11 +81,10 @@ const Navbar = () => {
                   <button
                     key={lang.code}
                     onClick={() => handleLangChange(lang.code)}
-                    className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors hover:bg-slate-50 ${
-                      lang.code === i18n.language
-                        ? 'text-brand-navy font-bold bg-brand-gold/10'
-                        : 'text-slate-600 font-medium'
-                    }`}
+                    className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors hover:bg-slate-50 ${lang.code === i18n.language
+                      ? 'text-brand-navy font-bold bg-brand-gold/10'
+                      : 'text-slate-600 font-medium'
+                      }`}
                   >
                     <span className="text-base">{lang.flag}</span>
                     <span>{lang.full}</span>
