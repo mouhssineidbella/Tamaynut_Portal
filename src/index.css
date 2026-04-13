@@ -1,66 +1,124 @@
 @import "tailwindcss";
 
 @theme {
+  /* ── Blue & White NGO Palette ──────────────────────────── */
+  --color-ngo-primary: #1D4ED8;   /* Strong Royal Blue    */
+  --color-ngo-secondary: #DBEAFE; /* Very Soft Blue       */
+  --color-ngo-dark: #0F172A;      /* Deep Navy/Slate      */
+  --color-ngo-light: #FFFFFF;     /* Pure White            */
+
+  /* ── Legacy brand tokens (Navbar / Footer compat) ─────── */
   --color-brand-navy: #0f172a;
-  --color-brand-green: #059669;
-  --color-brand-gold: #f59e0b;
+  --color-brand-green: #1D4ED8;
+  --color-brand-gold: #1D4ED8;
   --color-brand-white: #ffffff;
+
+  /* ── Typography ────────────────────────────────────────── */
   --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-@layer base {
-  body {
-    @apply bg-white text-slate-900 overflow-x-hidden;
-    font-family: var(--font-sans);
-  }
+/* ── Base styles ─────────────────────────────────────────── */
+body {
+  background-color: var(--color-ngo-light);
+  color: var(--color-ngo-dark);
+  overflow-x: hidden;
+  font-family: var(--font-sans);
 }
 
-@layer components {
-  .glass {
-    @apply bg-white/70 backdrop-blur-md border-b border-white/20;
-  }
-
-  .nav-link {
-    @apply text-slate-600 hover:text-brand-navy font-medium transition-colors duration-200 relative py-2;
-  }
-
-  .nav-link::after {
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300;
-    content: '';
-  }
-
-  .nav-link:hover::after {
-    @apply w-full;
-  }
-
-  .btn-primary {
-    @apply bg-brand-gold text-white px-6 py-2 rounded-full font-bold hover:bg-amber-600 transition-all shadow-md hover:shadow-lg active:scale-95;
-  }
-
-  .btn-secondary {
-    @apply border-2 border-brand-navy text-brand-navy px-6 py-2 rounded-full font-bold hover:bg-brand-navy hover:text-white transition-all active:scale-95;
-  }
-
-  .section-padding {
-    @apply py-20 px-6 max-w-7xl mx-auto;
-  }
+/* ── Glassmorphism navbar ────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(29, 78, 216, 0.06);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
-.hero-gradient {
-  background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.05), transparent 40%),
-              radial-gradient(circle at bottom left, rgba(5, 150, 105, 0.05), transparent 40%);
+/* ── Nav links ───────────────────────────────────────────── */
+.nav-link {
+  color: var(--color-ngo-dark);
+  font-weight: 500;
+  transition: color 0.2s ease;
+  position: relative;
+  padding-block: 0.5rem;
 }
 
-/* RTL support */
+.nav-link:hover {
+  color: var(--color-ngo-primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-ngo-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ── Primary button (Royal Blue) ─────────────────────────── */
+.btn-primary {
+  background-color: var(--color-ngo-primary);
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.3);
+  letter-spacing: 0.01em;
+}
+
+.btn-primary:hover {
+  background-color: #1e40af;
+  box-shadow: 0 8px 28px rgba(29, 78, 216, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── Secondary button ────────────────────────────────────── */
+.btn-secondary {
+  border: 2px solid var(--color-ngo-primary);
+  color: var(--color-ngo-primary);
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  background: transparent;
+  letter-spacing: 0.01em;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-ngo-primary);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── Section spacing ─────────────────────────────────────── */
+.section-padding {
+  padding-block: 5rem;
+  padding-inline: 1.5rem;
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+/* ── RTL support ─────────────────────────────────────────── */
 html {
   transition: direction 0.2s ease;
 }
 
 [dir='rtl'] body {
   font-family: 'Noto Sans Arabic', var(--font-sans);
-}
-
-[dir='rtl'] .hero-gradient {
-  background: radial-gradient(circle at top left, rgba(245, 158, 11, 0.05), transparent 40%),
-              radial-gradient(circle at bottom right, rgba(5, 150, 105, 0.05), transparent 40%);
 }

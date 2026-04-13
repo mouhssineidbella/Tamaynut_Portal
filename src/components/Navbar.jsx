@@ -23,6 +23,12 @@ const Navbar = () => {
     setOpen(false);
   };
 
+  // Enforce RTL/LTR dynamically
+  useEffect(() => {
+    const dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.setAttribute('dir', dir);
+  }, [i18n.language]);
+
   // Close on outside click
   useEffect(() => {
     const handler = (e) => {
@@ -93,9 +99,9 @@ const Navbar = () => {
           </div>
 
           {/* Donate button */}
-          <button className="btn-primary hidden sm:block">
+          <Link to="/donate" className="btn-primary hidden sm:block text-center pt-2">
             {t('nav.donate')}
-          </button>
+          </Link>
         </div>
       </div>
     </nav>
