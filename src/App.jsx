@@ -6,6 +6,7 @@ import About from './pages/About';
 import Join from './pages/Join';
 import ArticleDetail from './pages/ArticleDetail';
 import Donate from './pages/Donate';
+import Contact from './pages/Contact';
 
 // Placeholder components for routes under development
 const PlaceholderPage = ({ title }) => (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/activities" element={<PlaceholderPage title="Recent Activities" />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/article/:id" element={<ArticleDetail />} />
           <Route path="/donate" element={<Donate />} />
           {/* Catch-all route */}

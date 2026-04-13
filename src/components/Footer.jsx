@@ -59,10 +59,6 @@ const Footer = () => {
                 <span>Rabat, Maroc</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-ngo-primary shrink-0" />
-                <span dir="ltr">+212 (0) 5XX XX XX XX</span>
-              </li>
-              <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-ngo-primary shrink-0" />
                 <span>contact@tamaynut.org</span>
               </li>

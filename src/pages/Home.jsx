@@ -53,14 +53,15 @@ const Home = () => {
           </motion.span>
 
           {/* Headline */}
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.9, ease: 'easeOut' }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight max-w-4xl mx-auto"
           >
-            Centre d'appui et de défense des droits humains et de la culture Amazighe
-          </motion.h1>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight max-w-4xl mx-auto">
+              <span>Centre d'appui et de défense des droits humains et de la culture Amazighe</span>
+            </h1>
+          </motion.div>
 
           {/* Subtitle */}
           <motion.p
